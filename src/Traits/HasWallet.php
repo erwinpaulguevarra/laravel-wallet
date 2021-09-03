@@ -48,10 +48,10 @@ trait HasWallet
         /** @var Wallet $self */
         $self = $this;
 
-        return app(DbService::class)->transaction(static function () use ($self, $amount, $meta, $confirmed) {
+//        return app(DbService::class)->transaction(static function () use ($self, $amount, $meta, $confirmed) {
             return app(CommonService::class)
                 ->deposit($self, $amount, $meta, $confirmed);
-        });
+//        });
     }
 
     /**
@@ -197,10 +197,10 @@ trait HasWallet
         /** @var Wallet $self */
         $self = $this;
 
-        return app(DbService::class)->transaction(static function () use ($self, $amount, $meta, $confirmed) {
+//        return app(DbService::class)->transaction(static function () use ($self, $amount, $meta, $confirmed) {
             return app(CommonService::class)
                 ->forceWithdraw($self, $amount, $meta, $confirmed);
-        });
+//        });
     }
 
     /**
@@ -221,10 +221,10 @@ trait HasWallet
         /** @var Wallet $self */
         $self = $this;
 
-        return app(DbService::class)->transaction(static function () use ($self, $amount, $wallet, $meta) {
+//        return app(DbService::class)->transaction(static function () use ($self, $amount, $wallet, $meta) {
             return app(CommonService::class)
                 ->forceTransfer($self, $wallet, $amount, $meta);
-        });
+//        });
     }
 
     /**
