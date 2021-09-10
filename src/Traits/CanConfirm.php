@@ -33,7 +33,7 @@ trait CanConfirm
             /** @var Wallet|Confirmable $self */
             $self = $this;
 
-            return app(DbService::class)->transaction(static function () use ($self, $transaction) {
+//             return app(DbService::class)->transaction(static function () use ($self, $transaction) {
                 $wallet = app(WalletService::class)->getWallet($self);
                 if (! $wallet->refreshBalance()) {
                     return false;
@@ -47,7 +47,7 @@ trait CanConfirm
                 }
 
                 return $self->forceConfirm($transaction);
-            });
+//             });
         });
     }
 
@@ -80,7 +80,7 @@ trait CanConfirm
             /** @var Wallet $self */
             $self = $this;
 
-            return app(DbService::class)->transaction(static function () use ($self, $transaction) {
+//             return app(DbService::class)->transaction(static function () use ($self, $transaction) {
                 $wallet = app(WalletService::class)->getWallet($self);
                 if (! $wallet->refreshBalance()) {
                     return false;
@@ -98,7 +98,7 @@ trait CanConfirm
                     // update balance
                     app(CommonService::class)
                         ->addBalance($wallet, $negativeAmount);
-            });
+//             });
         });
     }
 
@@ -130,7 +130,7 @@ trait CanConfirm
             /** @var Wallet $self */
             $self = $this;
 
-            return app(DbService::class)->transaction(static function () use ($self, $transaction) {
+//             return app(DbService::class)->transaction(static function () use ($self, $transaction) {
                 $wallet = app(WalletService::class)
                     ->getWallet($self);
 
@@ -147,7 +147,7 @@ trait CanConfirm
                     // update balance
                     app(CommonService::class)
                         ->addBalance($wallet, $transaction->amount);
-            });
+//             });
         });
     }
 }
