@@ -108,7 +108,7 @@ class Operation
      */
     public function setAmount($amount): self
     {
-        $this->amount = app(Mathable::class)->round($amount);
+        $this->amount = (int)app(Mathable::class)->round($amount);
 
         return $this;
     }
